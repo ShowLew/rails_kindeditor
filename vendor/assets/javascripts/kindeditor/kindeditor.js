@@ -933,6 +933,9 @@ function _mediaType(src) {
 	if (/\.(swf|flv)(\?|$)/i.test(src)) {
 		return 'application/x-shockwave-flash';
 	}
+	if (/\.(mp4)(\?|$)/i.test(src)) {
+		return 'video/mp4';
+	}
 	return 'video/x-ms-asf-plugin';
 }
 
@@ -954,6 +957,13 @@ function _mediaEmbed(attrs) {
 		html += key + '="' + val + '" ';
 	});
 	html += '/>';
+	if(attrs.type=="video/mp4"){
+		var html = '<video ';
+		_each(attrs, function(key, val) {
+			html += key + '="' + val + '" ';
+		});
+		html += 'controls="controls"/>';
+	}
 	return html;
 }
 function _mediaImg(blankPath, attrs) {
