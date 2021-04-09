@@ -953,12 +953,12 @@ function _mediaAttrs(srcTag) {
 	return _getAttrList(unescape(srcTag));
 }
 function _mediaEmbed(attrs) {
-	var html = '<embed ';
-	_each(attrs, function(key, val) {
-		html += key + '="' + val + '" ';
-	});
-	html += '/>';
-	if(attrs.type=="video/mp4"){
+	// var html = '<embed ';
+	// _each(attrs, function(key, val) {
+	// 	html += key + '="' + val + '" ';
+	// });
+	// html += '/>';
+	if(attrs.type==="video/mp4"){
 		var html = '<video ';
 		_each(attrs, function(key, val) {
 			html += key + '="' + val + '" ';
